@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Earthwise Bharat Pvt. Ltd. | Sustainable Solutions for Sustainable Bharat</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a3a2a;
+    --green-mid: #2d5e3f;
+    --green-accent: #3d7a52;
+    --green-light: #5a9e6f;
+    --green-pale: #c8e6c9;
+    --green-mist: #e8f5e9;
+    --white: #ffffff;
+    --off-white: #f9fdf9;
+    --gold: #c9a84c;
+    --text-dark: #0f2118;
+    --text-mid: #2a4535;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+    background: rgba(26, 58, 42, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+
+  .logo-emblem {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--green-light), var(--gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.4);
+  }
+
+  .logo-text {
+    display: flex; flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 600;
+    color: var(--white); letter-spacing: 0.04em; line-height: 1.1;
+  }
+
+  .logo-tagline-small {
+    font-size: 0.6rem; color: var(--gold);
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.3s; position: relative; padding-bottom: 4px;
+  }
+
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1px; background: var(--gold);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--gold); color: var(--green-dark) !important;
+    padding: 8px 20px !important; border-radius: 2px;
+    font-weight: 600 !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: #e0b95a !important; color: var(--green-dark) !important; }
+
+  /* hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green-dark) 0%, var(--green-mid) 50%, var(--green-accent) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 120px 5% 80px;
+  }
+
+  .hero-bg-pattern {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 61px),
+                      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.3) 60px, rgba(255,255,255,0.3) 61px);
+  }
+
+  .hero-leaf {
+    position: absolute; font-size: 200px; opacity: 0.05;
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-leaf:nth-child(2) { top: 10%; right: 5%; animation-delay: -3s; }
+  .hero-leaf:nth-child(3) { bottom: 10%; left: 2%; font-size: 150px; animation-delay: -6s; }
+
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(201,168,76,0.6);
+    color: var(--gold); font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 6px 20px; border-radius: 20px;
+    margin-bottom: 32px;
+    animation: fadeInDown 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: var(--white); font-weight: 600; line-height: 1.1;
+    margin-bottom: 16px;
+    animation: fadeInDown 0.8s ease 0.15s both;
+  }
+
+  .hero-title span { color: var(--gold); font-style: italic; }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255,255,255,0.8); font-weight: 300;
+    letter-spacing: 0.08em; margin-bottom: 48px;
+    animation: fadeInDown 0.8s ease 0.3s both;
+  }
+
+  .hero-stats {
+    display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 56px;
+    animation: fadeInDown 0.8s ease 0.45s both;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; color: var(--gold); font-weight: 700; line-height: 1;
+  }
+  .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.65); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
+  .hero-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeInDown 0.8s ease 0.6s both;
+  }
+
+  .btn-primary {
+    background: var(--gold); color: var(--green-dark);
+    padding: 14px 36px; border: none; cursor: pointer;
+    font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; display: inline-block; border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: #e0b95a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 36px; border: 1px solid rgba(255,255,255,0.5);
+    cursor: pointer; font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; display: inline-block; border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.5); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    animation: fadeInDown 1s ease 1s both;
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%,100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ─── MISSION STRIP ─── */
+  .mission-strip {
+    background: var(--gold);
+    padding: 20px 5%; display: flex; align-items: center; justify-content: center;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .mission-strip-item {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--green-dark); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em;
+  }
+  .mission-strip-icon { font-size: 1.2rem; }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 100px 5%; }
+
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--green-accent); font-weight: 600; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; width: 30px; height: 1px; background: var(--green-accent);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--green-dark); font-weight: 600; line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-title em { color: var(--green-accent); font-style: italic; }
+
+  .section-body {
+    font-size: 1rem; color: #3a5040; line-height: 1.85;
+    max-width: 680px;
+  }
+
+  /* ─── HOME ABOUT INTRO ─── */
+  .home-intro {
+    background: var(--off-white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  .home-intro-visual {
+    position: relative;
+  }
+
+  .intro-img-box {
+    width: 100%; aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    border-radius: 4px; overflow: hidden; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .intro-img-inner {
+    font-size: 8rem; opacity: 0.3;
+  }
+
+  .intro-img-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(26,58,42,0.9), transparent);
+    padding: 32px; color: var(--white);
+  }
+
+  .intro-img-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-style: italic; line-height: 1.4;
+    border-left: 3px solid var(--gold); padding-left: 16px;
+  }
+
+  .intro-accent-box {
+    position: absolute; top: -20px; right: -20px;
+    width: 100px; height: 100px;
+    background: var(--gold); opacity: 0.2; border-radius: 2px;
+  }
+
+  .intro-accent-box2 {
+    position: absolute; bottom: -20px; left: -20px;
+    width: 60px; height: 60px;
+    border: 2px solid var(--green-accent); border-radius: 50%;
+  }
+
+  .home-intro-content .section-body { max-width: 100%; }
+
+  .value-pills {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+  }
+
+  .pill {
+    background: var(--green-mist); color: var(--green-dark);
+    padding: 6px 16px; border-radius: 20px; font-size: 0.78rem; font-weight: 500;
+    border: 1px solid var(--green-pale);
+  }
+
+  /* ─── WHY US ─── */
+  .why-us {
+    background: var(--green-dark);
+    text-align: center;
+  }
+
+  .why-us .section-label { color: var(--gold); justify-content: center; }
+  .why-us .section-label::before { background: var(--gold); }
+  .why-us .section-title { color: var(--white); margin: 0 auto 16px; }
+  .why-us .section-body { color: rgba(255,255,255,0.7); margin: 0 auto 60px; }
+
+  .why-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    margin-top: 60px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    padding: 48px 36px; text-align: left;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+
+  .why-icon {
+    font-size: 2.4rem; margin-bottom: 20px;
+    display: block;
+  }
+
+  .why-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; color: var(--white); margin-bottom: 12px; font-weight: 600;
+  }
+
+  .why-card p { color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.7; }
+
+  /* ─── IMPACT NUMBERS ─── */
+  .impact-section {
+    background: var(--green-mist);
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; padding: 0;
+  }
+
+  .impact-item {
+    padding: 60px 40px; text-align: center;
+    border-right: 1px solid var(--green-pale);
+  }
+  .impact-item:last-child { border-right: none; }
+
+  .impact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; color: var(--green-mid); font-weight: 700; line-height: 1;
+  }
+
+  .impact-unit { font-size: 1.5rem; color: var(--gold); }
+  .impact-label { font-size: 0.75rem; color: var(--text-mid); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 8px; }
+
+  /* ─── ABOUT US ─── */
+  #about { background: var(--white); }
+
+  .about-header { text-align: center; max-width: 720px; margin: 0 auto 80px; }
+  .about-header .section-label { justify-content: center; }
+  .about-header .section-label::before { display: none; }
+  .about-header .section-label::after { content: ''; width: 30px; height: 1px; background: var(--green-accent); }
+
+  .founders-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+
+  .founder-card {
+    background: var(--off-white);
+    border: 1px solid var(--green-pale);
+    border-top: 4px solid var(--green-accent);
+    border-radius: 4px; overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .founder-card:hover { box-shadow: 0 16px 48px rgba(26,58,42,0.12); transform: translateY(-4px); }
+
+  .founder-img {
+    height: 240px;
+    background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .founder-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    border: 3px solid rgba(255,255,255,0.3);
+  }
+
+  .founder-gold-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--gold); color: var(--green-dark);
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 4px 12px; font-weight: 600; border-radius: 2px;
+  }
+
+  .founder-body { padding: 36px; }
+
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; color: var(--green-dark); font-weight: 600; margin-bottom: 4px;
+  }
+
+  .founder-role {
+    font-size: 0.72rem; color: var(--green-accent); letter-spacing: 0.15em;
+    text-transform: uppercase; font-weight: 500; margin-bottom: 20px;
+  }
+
+  .founder-desc { font-size: 0.88rem; color: #3a5040; line-height: 1.8; margin-bottom: 24px; }
+
+  .founder-highlights {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+
+  .founder-highlight {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.82rem; color: var(--text-mid);
+  }
+  .founder-highlight::before { content: '◆'; color: var(--gold); font-size: 0.6rem; margin-top: 4px; flex-shrink: 0; }
+
+  .about-mission {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    margin-top: 80px; padding: 60px; border-radius: 4px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+
+  .about-mission h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--white); margin-bottom: 16px;
+  }
+
+  .about-mission p { color: rgba(255,255,255,0.8); line-height: 1.8; font-size: 0.9rem; }
+
+  .mission-values { display: flex; flex-direction: column; gap: 16px; }
+
+  .mv-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px; background: rgba(255,255,255,0.07);
+    border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0;
+  }
+
+  .mv-icon { font-size: 1.5rem; }
+  .mv-text { color: var(--white); font-size: 0.88rem; }
+  .mv-text strong { display: block; margin-bottom: 2px; }
+  .mv-text span { color: rgba(255,255,255,0.65); font-size: 0.8rem; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--off-white); }
+
+  .services-header { text-align: center; max-width: 700px; margin: 0 auto 72px; }
+  .services-header .section-label { justify-content: center; }
+  .services-header .section-label::before { display: none; }
+  .services-header .section-label::after { content: ''; width: 30px; height: 1px; background: var(--green-accent); }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white); border-radius: 4px;
+    padding: 40px 32px;
+    border: 1px solid var(--green-pale);
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green-accent), var(--gold));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { box-shadow: 0 20px 48px rgba(26,58,42,0.12); transform: translateY(-6px); }
+
+  .service-icon-wrap {
+    width: 60px; height: 60px; border-radius: 12px;
+    background: var(--green-mist);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 24px;
+    transition: background 0.3s;
+  }
+  .service-card:hover .service-icon-wrap { background: var(--green-accent); }
+
+  .service-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; color: var(--green-dark); margin-bottom: 12px; font-weight: 600;
+  }
+
+  .service-card p { font-size: 0.85rem; color: #4a6054; line-height: 1.75; margin-bottom: 20px; }
+
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .service-features li {
+    font-size: 0.8rem; color: var(--green-accent); font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .service-features li::before { content: '→'; color: var(--gold); }
+
+  .services-cta {
+    text-align: center; margin-top: 60px;
+  }
+
+  /* ─── WORK WITH US ─── */
+  #work { background: var(--white); }
+
+  .work-header { text-align: center; max-width: 680px; margin: 0 auto 72px; }
+  .work-header .section-label { justify-content: center; }
+  .work-header .section-label::before { display: none; }
+  .work-header .section-label::after { content: ''; width: 30px; height: 1px; background: var(--green-accent); }
+
+  .work-tabs {
+    display: flex; gap: 0; border-bottom: 2px solid var(--green-pale); margin-bottom: 60px;
+    justify-content: center;
+  }
+
+  .work-tab {
+    padding: 14px 40px; cursor: pointer;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+    color: var(--text-mid); border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: all 0.3s; background: none; border-top: none; border-left: none; border-right: none;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .work-tab.active, .work-tab:hover { color: var(--green-dark); border-bottom-color: var(--green-accent); }
+
+  .work-panel { display: none; }
+  .work-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+  .work-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--green-dark); margin-bottom: 16px;
+  }
+
+  .work-info p { font-size: 0.9rem; color: #3a5040; line-height: 1.85; margin-bottom: 24px; }
+
+  .requirements-box {
+    background: var(--green-mist); border-left: 4px solid var(--green-accent);
+    padding: 28px; border-radius: 0 4px 4px 0; margin-bottom: 28px;
+  }
+
+  .requirements-box h4 {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green-accent); margin-bottom: 16px; font-weight: 600;
+  }
+
+  .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .req-list li {
+    font-size: 0.88rem; color: var(--text-dark);
+    display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+  }
+  .req-list li::before { content: '✓'; color: var(--green-accent); font-weight: 700; flex-shrink: 0; }
+
+  .apply-box {
+    background: var(--green-dark); padding: 32px; border-radius: 4px; color: var(--white);
+  }
+
+  .apply-box h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; margin-bottom: 12px;
+  }
+
+  .apply-box p { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-bottom: 20px; line-height: 1.7; }
+
+  .apply-email {
+    display: block; background: var(--gold); color: var(--green-dark);
+    padding: 14px 24px; text-align: center; text-decoration: none;
+    font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em;
+    border-radius: 2px; transition: background 0.3s;
+  }
+  .apply-email:hover { background: #e0b95a; }
+
+  .work-visual {
+    background: linear-gradient(135deg, var(--green-accent), var(--green-dark));
+    border-radius: 4px; padding: 48px 40px; color: var(--white);
+  }
+
+  .work-visual h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; margin-bottom: 24px;
+  }
+
+  .perk-list { display: flex; flex-direction: column; gap: 20px; }
+  .perk-item { display: flex; gap: 16px; align-items: flex-start; }
+  .perk-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .perk-text strong { display: block; color: var(--gold); font-size: 0.9rem; margin-bottom: 4px; }
+  .perk-text span { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--green-dark); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start;
+  }
+
+  .contact-info .section-label { color: var(--gold); }
+  .contact-info .section-label::before { background: var(--gold); }
+  .contact-info .section-title { color: var(--white); }
+
+  .contact-info p { color: rgba(255,255,255,0.7); line-height: 1.85; margin-bottom: 40px; font-size: 0.9rem; }
+
+  .contact-details { display: flex; flex-direction: column; gap: 24px; }
+
+  .contact-detail-item {
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+
+  .cd-icon {
+    width: 44px; height: 44px; background: rgba(255,255,255,0.08);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+
+  .cd-text strong {
+    display: block; color: var(--white); font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px;
+  }
+
+  .cd-text span, .cd-text a {
+    color: rgba(255,255,255,0.65); font-size: 0.9rem; text-decoration: none;
+  }
+  .cd-text a:hover { color: var(--gold); }
+
+  .contact-form-box {
+    background: var(--white); border-radius: 4px; padding: 52px;
+  }
+
+  .contact-form-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: var(--green-dark); margin-bottom: 8px;
+  }
+
+  .contact-form-box p { color: #4a6054; font-size: 0.85rem; margin-bottom: 36px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+
+  .form-group label {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green-accent); font-weight: 600;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    border: 1px solid var(--green-pale); border-radius: 2px;
+    padding: 12px 16px; font-family: 'Jost', sans-serif; font-size: 0.88rem;
+    color: var(--text-dark); background: var(--off-white);
+    outline: none; transition: border-color 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--green-accent); background: var(--white);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    width: 100%; background: var(--green-dark); color: var(--white);
+    padding: 16px; border: none; cursor: pointer;
+    font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; border-radius: 2px;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .form-submit:hover { background: var(--green-accent); transform: translateY(-2px); }
+
+  .form-note { font-size: 0.75rem; color: #8a9e90; text-align: center; margin-top: 12px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0d2018; padding: 48px 5% 32px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand .logo-name { font-size: 1.3rem; }
+  .footer-brand .logo-tagline-small { font-size: 0.65rem; }
+  .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+
+  .footer-col h4 {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; font-weight: 600;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.55); font-size: 0.83rem; text-decoration: none; transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    background: #0d2018; padding: 20px 5%;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.75rem; }
+
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0; animation: fadeInUp 0.7s ease forwards;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { grid-template-columns: 1fr 1fr; }
+    .impact-section { grid-template-columns: repeat(2, 1fr); }
+    .impact-item { border-right: none; border-bottom: 1px solid var(--green-pale); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-form-box { padding: 36px; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; position: fixed; top: 72px; left: 0; width: 100%; background: var(--green-dark); flex-direction: column; padding: 20px 5%; gap: 20px; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .home-intro { grid-template-columns: 1fr; }
+    .founders-grid { grid-template-columns: 1fr; }
+    .about-mission { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .work-panel.active { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .contact-form-box { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="logo-emblem">🌿</div>
+    <div class="logo-text">
+      <span class="logo-name">Earthwise Bharat</span>
+      <span class="logo-tagline-small">Pvt. Ltd.</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work With Us</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══ HOME ═══ -->
+<section id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-leaf">🍃</div>
+  <div class="hero-leaf">🌱</div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Est. New Delhi · India's Green Future</div>
+    <h1 class="hero-title">
+      Sustainable Solutions<br>for <span>Sustainable Bharat</span>
+    </h1>
+    <p class="hero-tagline">Empowering Indian businesses to build greener, cleaner, and more resilient futures — through expert environmental compliance, ESG strategy, and net zero transformation.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5<span class="impact-unit">+</span></div>
+        <div class="stat-label">Core Services</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100<span class="impact-unit">%</span></div>
+        <div class="stat-label">India-Focused Expertise</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Net<span style="font-size:1.2rem"> Zero</span></div>
+        <div class="stat-label">Our Promise</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MISSION STRIP -->
+<div class="mission-strip">
+  <div class="mission-strip-item"><span class="mission-strip-icon">🌍</span> Environmental Compliance</div>
+  <div class="mission-strip-item"><span class="mission-strip-icon">📊</span> ESG Advisory</div>
+  <div class="mission-strip-item"><span class="mission-strip-icon">🏭</span> Net Zero Consulting</div>
+  <div class="mission-strip-item"><span class="mission-strip-icon">⚖️</span> Legal & Regulatory Support</div>
+  <div class="mission-strip-item"><span class="mission-strip-icon">🌿</span> Green Certification</div>
+</div>
+
+<!-- HOME INTRO -->
+<div class="home-intro" style="padding: 100px 5%;">
+  <div class="home-intro-visual">
+    <div class="intro-accent-box"></div>
+    <div class="intro-img-box">
+      <div class="intro-img-inner">🌏</div>
+      <div class="intro-img-overlay">
+        <div class="intro-img-quote">"The Earth does not belong to us — we belong to the Earth."</div>
+      </div>
+    </div>
+    <div class="intro-accent-box2"></div>
+  </div>
+  <div class="home-intro-content">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">India's Trusted Partner in <em>Environmental Excellence</em></h2>
+    <p class="section-body">
+      Earthwise Bharat Pvt. Ltd. is a New Delhi-based environmental consultancy and compliance firm dedicated to transforming the way Indian businesses interact with our planet. We combine rigorous legal expertise, environmental science, and strategic ESG advisory to deliver end-to-end sustainability solutions.
+      <br><br>
+      As India accelerates its commitment to a net zero future under the Paris Agreement and aligns with global sustainability frameworks, businesses face mounting pressure — and opportunity — to lead with environmental responsibility. We are here to make that transition seamless, credible, and commercially advantageous.
+      <br><br>
+      From securing environmental clearances to designing net zero roadmaps and delivering ESG disclosures that meet global investor standards, Earthwise Bharat is the bridge between regulatory compliance and genuine sustainable impact.
+    </p>
+    <div class="value-pills">
+      <span class="pill">🇮🇳 Made for India</span>
+      <span class="pill">⚖️ Law-Led Approach</span>
+      <span class="pill">📈 ESG-Ready</span>
+      <span class="pill">🌱 Science-Backed</span>
+      <span class="pill">🤝 Client-First</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="why-us" style="padding: 100px 5%;">
+  <div class="section-label">Why Earthwise Bharat</div>
+  <h2 class="section-title" style="max-width: 600px; margin: 0 auto 16px;">Built for India's <em style="color: var(--gold);">Green Economy</em></h2>
+  <p class="section-body">We bring together legal precision, environmental science, and strategic advisory — uniquely calibrated for the Indian regulatory and business landscape.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">⚖️</span>
+      <h3>Legal & Regulatory Expertise</h3>
+      <p>Our team brings deep courtroom and regulatory experience across NGT, Supreme Court, MOEF&CC, and state environmental bodies — ensuring your compliance is bulletproof.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🔬</span>
+      <h3>Science-Backed Solutions</h3>
+      <p>Every recommendation is grounded in environmental science, international best practices, and India-specific ecological data — not just paperwork.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🌐</span>
+      <h3>Global Standards, Indian Roots</h3>
+      <p>We align your business with UNFCCC frameworks, GRI reporting, BRSR mandates, and global ESG investor expectations — with an India-first lens.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📋</span>
+      <h3>End-to-End Service Delivery</h3>
+      <p>From the first environmental audit to your final ESG report and net zero certification, we are with you at every step of the sustainability journey.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🏢</span>
+      <h3>Sector-Agnostic Approach</h3>
+      <p>Manufacturing, energy, real estate, LPG & hydrocarbons, FMCG, or infrastructure — our solutions are tailored for every sector driving India's growth story.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h3>Partnership, Not Just Consulting</h3>
+      <p>We build lasting relationships with our clients, acting as your long-term sustainability partner — tracking, reporting, and evolving your green strategy over time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- IMPACT NUMBERS -->
+<div class="impact-section">
+  <div class="impact-item">
+    <div class="impact-num">2025<span class="impact-unit"></span></div>
+    <div class="impact-label">Founded in New Delhi</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-num">6<span class="impact-unit">+</span></div>
+    <div class="impact-label">Specialized Services</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-num">50<span class="impact-unit">+</span></div>
+    <div class="impact-label">Court Appearances (Collective)</div>
+  </div>
+  <div class="impact-item">
+    <div class="impact-num">Net<span class="impact-unit" style="font-size:1rem"> 0</span></div>
+    <div class="impact-label">Our Corporate Commitment</div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT US ═══ -->
+<section id="about">
+  <div class="about-header">
+    <div class="section-label">Our Leadership</div>
+    <h2 class="section-title">The Minds Behind <em>Earthwise Bharat</em></h2>
+    <p class="section-body" style="margin: 0 auto;">Co-founded by two exceptional legal and environmental professionals, Earthwise Bharat combines courtroom-tested legal rigour with frontline environmental expertise to deliver solutions that truly matter.</p>
+  </div>
+
+  <div class="founders-grid">
+    <!-- Shubhi Pandey -->
+    <div class="founder-card">
+      <div class="founder-img">
+        <div class="founder-avatar">👩‍⚖️</div>
+        <div class="founder-gold-badge">🥇 Gold Medalist</div>
+      </div>
+      <div class="founder-body">
+        <div class="founder-name">Ms. Shubhi Pandey</div>
+        <div class="founder-role">Co-Founder & Environmental Law Director</div>
+        <p class="founder-desc">
+          Ms. Shubhi Pandey is a Gold Medalist in LLM (Environment & Natural Resource Law) from TERI School of Advanced Studies, New Delhi, where she ranked first in her batch of 2024–25 — a distinction that reflects not only her academic brilliance but her passionate commitment to environmental justice.
+          <br><br>
+          A B.B.A. LL.B. graduate of Symbiosis Law School (SIU), Shubhi brings a rare blend of corporate law foundations and deep environmental specialisation. She has appeared and conducted research before the Supreme Court of India, the National Green Tribunal (NGT), and the National Consumer Disputes Redressal Commission, and has worked with the UP Department of Environment, Forest & Climate Change — where she assisted in securing clearances from the Supreme Court, NGT, and the Ministry of Environment, Forest and Climate Change, Government of India.
+          <br><br>
+          Shubhi has represented India at the UNFCCC COP 29 in Baku, Azerbaijan (2024), participated in the Summer School on Climate Justice & Law, and holds an ESG certification from The Nature's Eye. Her published research on outer space law and UN essay competition recognition reflect the breadth of her intellectual engagement. At Earthwise Bharat, she leads environmental compliance advisory, regulatory strategy, and ESG governance frameworks — bridging law, policy, and sustainable practice.
+        </p>
+        <div class="founder-highlights">
+          <div class="founder-highlight">Gold Medalist – LLM, Environment & Natural Resources Law, TERI SAS (2025)</div>
+          <div class="founder-highlight">Represented India at UNFCCC COP 29, Baku, Azerbaijan (2024)</div>
+          <div class="founder-highlight">Environmental Consultancy Trainee – UP Dept. of Environment, Forest & Climate Change</div>
+          <div class="founder-highlight">Worked with Attorney General of India on Bhopal Gas Leak proceedings</div>
+          <div class="founder-highlight">Certified in ESG Governance & Climate Justice Law</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gurmehar Singh -->
+    <div class="founder-card">
+      <div class="founder-img">
+        <div class="founder-avatar">👨‍⚖️</div>
+        <div class="founder-gold-badge">⚡ Energy Law Expert</div>
+      </div>
+      <div class="founder-body">
+        <div class="founder-name">Adv. Gurmehar Singh</div>
+        <div class="founder-role">Co-Founder & Corporate Compliance Director</div>
+        <p class="founder-desc">
+          Advocate Gurmehar Singh is a seasoned legal professional with a sharp focus on banking, finance, insolvency, and corporate compliance — disciplines that sit at the heart of India's sustainable transition. He holds an LLM from TERI School of Advanced Studies (2025) and a B.A. LL.B. (Hons.) from Amity Law School (2022), and brings extensive courtroom experience having appeared in over 50 matters before the DRT, NCLT, and the Delhi High Court.
+          <br><br>
+          Gurmehar's close professional association with India's LPG sector — a critical pillar of the nation's clean energy mix and a bridge fuel in the journey toward net zero — gives Earthwise Bharat a distinctive edge in energy-sector sustainability consulting. His understanding of the financial, regulatory, and operational dynamics of the hydrocarbon and LPG industries enables the firm to deliver compliance solutions that are practical, commercially aware, and deeply informed by sectoral realities.
+          <br><br>
+          Having worked with Khaitan & Khaitan on banking & finance matters, and having trained with leading firms including Luthra & Luthra, Singhania & Partners, and Vaish Associates, Gurmehar brings a sophisticated corporate legal lens to sustainability strategy — helping companies navigate complex regulatory landscapes while building responsible, future-ready business models.
+        </p>
+        <div class="founder-highlights">
+          <div class="founder-highlight">LLM Graduate – TERI School of Advanced Studies, New Delhi (2025)</div>
+          <div class="founder-highlight">Former Associate – Khaitan & Khaitan (Banking & Finance Team)</div>
+          <div class="founder-highlight">50+ appearances before DRT, NCLT & Delhi High Court</div>
+          <div class="founder-highlight">Close professional expertise in India's LPG & clean energy sector</div>
+          <div class="founder-highlight">Trained at Luthra & Luthra, Singhania & Partners, Vaish Associates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-mission">
+    <div>
+      <h3>Our Vision & Mission</h3>
+      <p>Earthwise Bharat was founded on the conviction that India's extraordinary economic growth and its environmental responsibilities are not in conflict — they are complementary. We exist to help Indian companies see sustainability not as a cost, but as the most powerful competitive advantage of the 21st century.<br><br>Our mission is to make world-class environmental compliance, legal expertise, and ESG strategy accessible to every Indian enterprise — from startups to large corporates — enabling a truly Sustainable Bharat.</p>
+    </div>
+    <div class="mission-values">
+      <div class="mv-item">
+        <div class="mv-icon">🎯</div>
+        <div class="mv-text">
+          <strong>Integrity First</strong>
+          <span>Every recommendation is honest, evidence-based, and in your long-term interest.</span>
+        </div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-icon">🌿</div>
+        <div class="mv-text">
+          <strong>Planet Before Profit</strong>
+          <span>Genuine environmental outcomes, not just box-ticking compliance.</span>
+        </div>
+      </div>
+      <div class="mv-item">
+        <div class="mv-icon">🇮🇳</div>
+        <div class="mv-text">
+          <strong>Bharat-Centric</strong>
+          <span>Deep roots in Indian law, policy, and business culture — for solutions that actually work.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Comprehensive <em>Sustainability Services</em></h2>
+    <p class="section-body" style="margin: 0 auto;">From legal compliance to transformative ESG strategies, our services cover the full spectrum of what modern Indian businesses need to grow responsibly and sustainably.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon-wrap">⚖️</div>
+      <h3>Environmental Compliance</h3>
+      <p>We guide businesses through India's complex environmental regulatory framework — ensuring you meet every legal obligation while avoiding costly penalties and reputational risk.</p>
+      <ul class="service-features">
+        <li>Environmental clearance applications (MOEF&CC & State PCBs)</li>
+        <li>Consent to Establish & Consent to Operate</li>
+        <li>Forest land diversion & tree-cutting permissions</li>
+        <li>Wildlife & biodiversity compliance</li>
+        <li>NGT and High Court representation</li>
+        <li>Compliance audits under EPA 1986, FCA 1980, WPA 1972</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon-wrap">🌿</div>
+      <h3>Environmental Consultancy</h3>
+      <p>Strategic environmental advisory tailored to your project, sector, and region — from Environmental Impact Assessments to biodiversity management plans and pollution control strategies.</p>
+      <ul class="service-features">
+        <li>Environmental Impact Assessments (EIA)</li>
+        <li>Environmental Management Plans (EMP)</li>
+        <li>Site-specific ecological baseline studies</li>
+        <li>Pollution load analysis & mitigation strategies</li>
+        <li>Climate risk and resilience assessments</li>
+        <li>Green building & infrastructure advisory</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon-wrap">🏭</div>
+      <h3>Net Zero Campus Transformation</h3>
+      <p>We design and implement end-to-end net zero roadmaps for corporate campuses, manufacturing units, and office complexes — turning your operations into a showcase of sustainable excellence.</p>
+      <ul class="service-features">
+        <li>Carbon footprint mapping & GHG inventories</li>
+        <li>Renewable energy transition planning</li>
+        <li>Zero waste operations design</li>
+        <li>Water positivity strategies</li>
+        <li>Scope 1, 2 & 3 emissions reduction plans</li>
+        <li>Net zero certification support</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon-wrap">📊</div>
+      <h3>ESG Advisory & Reporting</h3>
+      <p>Comprehensive Environmental, Social and Governance (ESG) strategy and disclosure services that satisfy global investor expectations, SEBI's BRSR mandate, and international reporting frameworks.</p>
+      <ul class="service-features">
+        <li>SEBI BRSR (Business Responsibility & Sustainability Reporting)</li>
+        <li>GRI Standards reporting & alignment</li>
+        <li>ESG materiality assessments</li>
+        <li>Investor ESG due diligence support</li>
+        <li>Supply chain ESG risk mapping</li>
+        <li>ESG ratings advisory (MSCI, Sustainalytics, CDP)</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon-wrap">⚡</div>
+      <h3>Energy Sector Sustainability</h3>
+      <p>Specialist sustainability consulting for India's LPG, hydrocarbon, and energy sectors — bridging the transition from conventional fuels to clean energy with compliance, strategy, and legal rigour.</p>
+      <ul class="service-features">
+        <li>LPG sector environmental compliance</li>
+        <li>Clean energy transition roadmaps</li>
+        <li>Hydrocarbon facility compliance audits</li>
+        <li>OALP & petroleum regulatory compliance</li>
+        <li>Energy efficiency certifications</li>
+        <li>Flaring reduction & emissions strategies</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon-wrap">🌱</div>
+      <h3>Green Finance & Policy Advisory</h3>
+      <p>Helping businesses access India's growing green finance ecosystem — from green bonds to sustainability-linked loans — while navigating policy frameworks that shape investment decisions.</p>
+      <ul class="service-features">
+        <li>Green bond framework development</li>
+        <li>Sustainability-linked loan structuring</li>
+        <li>Policy impact assessments & government liaison</li>
+        <li>CSR environment project alignment</li>
+        <li>Carbon credit & offset advisory</li>
+        <li>TNFD & climate disclosure frameworks</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="services-cta">
+    <a href="#contact" class="btn-primary" style="font-size: 0.85rem; padding: 16px 48px;">Discuss Your Sustainability Needs →</a>
+  </div>
+</section>
+
+<!-- ═══ WORK WITH US ═══ -->
+<section id="work">
+  <div class="work-header">
+    <div class="section-label">Join Our Team</div>
+    <h2 class="section-title">Work With <em>Earthwise Bharat</em></h2>
+    <p class="section-body" style="margin: 0 auto;">We are always looking for passionate, driven individuals who believe in India's green future. Whether you're starting your career or looking to grow, there's a place for you here.</p>
+  </div>
+
+  <div class="work-tabs">
+    <button class="work-tab active" onclick="switchTab('internships')">Internships</button>
+    <button class="work-tab" onclick="switchTab('jobs')">Full-Time Jobs</button>
+  </div>
+
+  <!-- INTERNSHIPS -->
+  <div class="work-panel active" id="panel-internships">
+    <div class="work-info">
+      <h3>Internship Programme</h3>
+      <p>Our internship programme is designed to give students and recent graduates meaningful, hands-on exposure to environmental law, ESG consulting, and sustainability advisory. You won't just observe — you'll contribute to real projects that shape India's green transition.</p>
+
+      <div class="requirements-box">
+        <h4>Who Should Apply</h4>
+        <ul class="req-list">
+          <li>Degree (pursuing or completed) in Environmental Science, Environmental Law, Ecology, Natural Resource Management, Sustainability Studies, or any allied environmental field</li>
+          <li>Strong research, writing, and analytical skills</li>
+          <li>Genuine interest in environmental and sustainability issues in the Indian context</li>
+          <li>Ability to work independently and as part of a collaborative team</li>
+          <li>Familiarity with Indian environmental legislation is an advantage (but not mandatory)</li>
+        </ul>
+      </div>
+
+      <div class="apply-box">
+        <h4>How to Apply</h4>
+        <p>Send your resume/CV along with a brief cover note explaining your interest in environmental sustainability to our team. We welcome applications on a rolling basis throughout the year.</p>
+        <a href="mailto:shubhisomesh@gmail.com?subject=Internship Application – Earthwise Bharat" class="apply-email">📧 shubhisomesh@gmail.com</a>
+      </div>
+    </div>
+    <div class="work-visual">
+      <h4>What You'll Gain</h4>
+      <div class="perk-list">
+        <div class="perk-item">
+          <div class="perk-icon">🏛️</div>
+          <div class="perk-text">
+            <strong>Real Legal & Regulatory Exposure</strong>
+            <span>Work on live compliance briefs, environmental clearance research, and regulatory submissions under the guidance of experienced professionals.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">📊</div>
+          <div class="perk-text">
+            <strong>ESG & Sustainability Skills</strong>
+            <span>Get hands-on experience with ESG reporting, carbon footprint analysis, and BRSR frameworks that are in high demand globally.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">🌐</div>
+          <div class="perk-text">
+            <strong>Mentorship from Experts</strong>
+            <span>Learn directly from co-founders with TERI SAS LLM credentials, COP 29 participation, and deep sectoral expertise.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">📜</div>
+          <div class="perk-text">
+            <strong>Certificate & Reference</strong>
+            <span>Receive a formal internship certificate and strong professional reference letters to boost your career in sustainability.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOBS -->
+  <div class="work-panel" id="panel-jobs">
+    <div class="work-info">
+      <h3>Full-Time Opportunities</h3>
+      <p>As Earthwise Bharat grows, we are actively building a team of exceptional environmental professionals. We are looking for motivated individuals who are ready to be part of India's sustainability revolution at the ground level.</p>
+
+      <div class="requirements-box">
+        <h4>Who Should Apply</h4>
+        <ul class="req-list">
+          <li>Degree in Environmental Science, Environmental Law, Ecology, Natural Resource Management, Sustainability Studies, Environmental Engineering, or any allied environmental field</li>
+          <li>Strong research, drafting, and communication skills in English and/or Hindi</li>
+          <li>0–5 years of experience (freshers from strong environmental programs are encouraged)</li>
+          <li>Demonstrated passion for sustainability, climate, or environmental justice</li>
+          <li>Knowledge of Indian environmental regulatory frameworks is a strong plus</li>
+        </ul>
+      </div>
+
+      <div class="apply-box">
+        <h4>How to Apply</h4>
+        <p>Email your resume and CV to us with the subject line: "Full-Time Application – [Your Area of Expertise]". Tell us why Earthwise Bharat's mission resonates with you — we read every application carefully.</p>
+        <a href="mailto:shubhisomesh@gmail.com?subject=Full-Time Application – Earthwise Bharat" class="apply-email">📧 shubhisomesh@gmail.com</a>
+      </div>
+    </div>
+    <div class="work-visual">
+      <h4>Why Join Earthwise Bharat?</h4>
+      <div class="perk-list">
+        <div class="perk-item">
+          <div class="perk-icon">🌱</div>
+          <div class="perk-text">
+            <strong>Work That Matters</strong>
+            <span>Every project you contribute to creates measurable environmental impact for India's communities and ecosystems.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">🚀</div>
+          <div class="perk-text">
+            <strong>Early-Stage Growth</strong>
+            <span>Join a growing firm at the ground floor and shape its culture, processes, and direction from the start.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">🎓</div>
+          <div class="perk-text">
+            <strong>Continuous Learning</strong>
+            <span>Stay ahead with access to COP briefings, ESG certifications, regulatory training, and expert-led workshops.</span>
+          </div>
+        </div>
+        <div class="perk-item">
+          <div class="perk-icon">🤝</div>
+          <div class="perk-text">
+            <strong>Collaborative Culture</strong>
+            <span>A small, driven, and highly capable team where your ideas are heard, valued, and acted upon.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT US ═══ -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label">Reach Out</div>
+      <h2 class="section-title" style="color: var(--white);">Let's Build a <em style="color: var(--gold);">Greener Future</em> Together</h2>
+      <p>Whether you are a business seeking environmental compliance support, an investor exploring ESG advisory, or an institution looking for a sustainability partner — we would love to hear from you. Reach out and let's start the conversation.</p>
+
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <div class="cd-icon">📍</div>
+          <div class="cd-text">
+            <strong>Our Location</strong>
+            <span>New Delhi, India</span>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">📧</div>
+          <div class="cd-text">
+            <strong>Email Us</strong>
+            <a href="mailto:shubhisomesh@gmail.com">shubhisomesh@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">🕐</div>
+          <div class="cd-text">
+            <strong>Office Hours</strong>
+            <span>Monday – Saturday, 10:00 AM – 6:00 PM IST</span>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="cd-icon">🌐</div>
+          <div class="cd-text">
+            <strong>Service Area</strong>
+            <span>Pan-India · Remote & On-Site Engagements</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-box">
+      <h3>Send Us a Message</h3>
+      <p>For queries, service enquiries, and potential collaborations — fill in the form below or write directly to <a href="mailto:shubhisomesh@gmail.com" style="color: var(--green-accent); font-weight: 500;">shubhisomesh@gmail.com</a></p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Rahul">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="rahul@company.com">
+      </div>
+      <div class="form-group">
+        <label>Organisation / Company</label>
+        <input type="text" placeholder="Your Company Name">
+      </div>
+      <div class="form-group">
+        <label>Service of Interest</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Environmental Compliance</option>
+          <option>Environmental Consultancy</option>
+          <option>Net Zero Campus Transformation</option>
+          <option>ESG Advisory & Reporting</option>
+          <option>Energy Sector Sustainability</option>
+          <option>Green Finance & Policy Advisory</option>
+          <option>Other / General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea placeholder="Tell us about your sustainability goals or the challenge you're facing..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Message →</button>
+      <p class="form-note">Or email us directly at <a href="mailto:shubhisomesh@gmail.com" style="color: var(--green-accent);">shubhisomesh@gmail.com</a> — we respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+      <div class="logo-emblem">🌿</div>
+      <div class="logo-text">
+        <span class="logo-name" style="color: white; font-size: 1.2rem;">Earthwise Bharat Pvt. Ltd.</span>
+        <span class="logo-tagline-small">Sustainable Solutions for Sustainable Bharat</span>
+      </div>
+    </div>
+    <p>India's dedicated environmental compliance, ESG advisory, and net zero consultancy — empowering businesses to lead the green revolution with legal precision and scientific integrity.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work With Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Our Services</h4>
+    <ul>
+      <li><a href="#services">Environmental Compliance</a></li>
+      <li><a href="#services">Environmental Consultancy</a></li>
+      <li><a href="#services">Net Zero Consulting</a></li>
+      <li><a href="#services">ESG Advisory</a></li>
+      <li><a href="#services">Energy Sector Sustainability</a></li>
+      <li><a href="#services">Green Finance Advisory</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <ul>
+      <li><a href="mailto:shubhisomesh@gmail.com">shubhisomesh@gmail.com</a></li>
+      <li><a href="#contact">New Delhi, India</a></li>
+      <li><a href="#work">Careers & Internships</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 Earthwise Bharat Pvt. Ltd. All rights reserved. | New Delhi, India</p>
+  <p>Designed with 🌿 for a Sustainable Bharat</p>
+</div>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.work-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.work-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function submitForm() {
+    const email = 'shubhisomesh@gmail.com';
+    window.location.href = 'mailto:' + email + '?subject=Service Enquiry – Earthwise Bharat';
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('navLinks').classList.remove('open');
+      }
+    });
+  });
+
+  // Nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 100;
+    sections.forEach(s => {
+      const top = s.offsetTop, h = s.offsetHeight;
+      const link = document.querySelector('.nav-links a[href="#' + s.id + '"]');
+      if (link) {
+        if (y >= top && y < top + h) link.style.color = '#c9a84c';
+        else link.style.color = '';
+      }
+    });
+  });
+</script>
+</body>
+</html>
